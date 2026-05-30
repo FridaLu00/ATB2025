@@ -400,16 +400,17 @@ export default function BackgroundAnimations({ menuOpen = false }: BackgroundAni
     window.addEventListener("click", handleClick);
 
     // 滚轮事件处理 - 每次滚动只施加一次冲量
-    const handleWheel = (e: WheelEvent) => {
+    const handleWheel = (e: Event) => {
+      const wheelEvent = e as WheelEvent;
       // 当菜单打开时，允许弹窗内容正常滚动，不阻止默认行为
       // 但仍然响应滚轮事件来控制背景动画
       // 使用 ref 避免闭包问题，确保获取最新的 menuOpen 状态
       if (!menuOpenRef.current) {
-        e.preventDefault();
+        wheelEvent.preventDefault();
       }
-      const delta = e.deltaY > 0 ? 1 : -1;
+      const delta = wheelEvent.deltaY > 0 ? 1 : -1;
       // 使用更大的冲量系数
-      const impulse = PHYSICS_CONFIG.wheelForce * Math.abs(e.deltaY) * 0.05;
+      const impulse = PHYSICS_CONFIG.wheelForce * Math.abs(wheelEvent.deltaY) * 0.05;
       
       boxesRef.current.forEach((box) => {
         // 计算切向力（围绕X轴旋转）
@@ -429,7 +430,7 @@ export default function BackgroundAnimations({ menuOpen = false }: BackgroundAni
         }
       });
     };
-    window.addEventListener("wheel" as string, handleWheel, { passive: false });
+    window.addEventListener("wheel", handleWheel as EventListener, { passive: false });
 
     // 页面滚动处理
     const handleScroll = () => {
