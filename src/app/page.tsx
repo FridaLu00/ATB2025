@@ -212,37 +212,75 @@ export default function HomePage() {
                     <span className="text-[9px] tracking-[0.25em] uppercase text-black/50 font-medium">Cultural Folding</span>
                     <div className="flex-1 h-[1px] bg-black/8" />
                   </div>
-                  <div className="grid grid-cols-4 gap-2 md:gap-3">
+                  {/* 第一行：项目1和项目7，右上角橙色色块 */}
+                  <div className="grid grid-cols-2 gap-2 md:gap-3 mb-2 md:mb-3 items-end">
+                    {/* 左侧大卡片 - 项目1（高） */}
                     <button
-                      className="relative col-span-2 row-span-2 aspect-[3/4] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative aspect-[3/4] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
                       onClick={() => { closeMenu(); router.push(`/project/1`); }}
                     >
                       <img src="/suoluetu/1.png" alt="东方钿语" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-3 flex flex-col items-center">
-                        <span className="text-white font-bold text-sm md:text-base text-center px-2 drop-shadow-md">东方钿语</span>
-                        <div className="w-4 h-[2px] bg-white/50 mt-2 group-hover:w-6 transition-all" />
+                      <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-4 flex flex-col items-center">
+                        <span className="text-white font-bold text-base md:text-lg text-center px-3 drop-shadow-md">东方钿语</span>
+                        <div className="w-6 h-[2px] bg-white/50 mt-2 group-hover:w-8 transition-all" />
                       </div>
                     </button>
+                    {/* 右侧：橙色色块 + 项目7 */}
+                    <div className="flex flex-col gap-2 md:gap-3" style={{ height: '100%' }}>
+                      {/* 橙色色块（文化折叠区主色，半透明） */}
+                      <div className="bg-[#E77C49]/30 rounded-lg flex-1" />
+                      {/* 项目7卡片 */}
+                      <button
+                        className="relative aspect-[3/2] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                        onClick={() => { closeMenu(); router.push(`/project/7`); }}
+                      >
+                        <img src="/suoluetu/7.png" alt="灵屿" className="absolute inset-0 w-full h-full object-cover" />
+                        <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-4 flex flex-col items-center">
+                          <span className="text-white font-bold text-base md:text-lg text-center px-3 drop-shadow-md">灵屿</span>
+                          <div className="w-6 h-[2px] bg-white/50 mt-2 group-hover:w-8 transition-all" />
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  {/* 第二行：左侧垂直两个方块，右侧项目3大卡片 */}
+                  <div className="flex gap-2 md:gap-3 mb-2 md:mb-3">
+                    {/* 左侧垂直两个方块（上：项目2，下：项目5） */}
+                    <div className="flex flex-col gap-2 md:gap-3 w-1/4">
+                      <button
+                        className="relative aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                        onClick={() => { closeMenu(); router.push(`/project/2`); }}
+                      >
+                        <img src="/suoluetu/2.png" alt="汴河序" className="absolute inset-0 w-full h-full object-cover" />
+                        <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
+                          <span className="text-white font-bold text-xs text-center px-1 drop-shadow-md">汴河序</span>
+                        </div>
+                      </button>
+                      <button
+                        className="relative aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                        onClick={() => { closeMenu(); router.push(`/project/5`); }}
+                      >
+                        <img src="/suoluetu/5.png" alt="竹韵千年" className="absolute inset-0 w-full h-full object-cover" />
+                        <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
+                          <span className="text-white font-bold text-xs text-center px-1 drop-shadow-md">竹韵千年</span>
+                        </div>
+                      </button>
+                    </div>
+                    {/* 右侧卡片 - 项目3 */}
                     <button
-                      className="relative col-span-1 row-span-1 aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
-                      onClick={() => { closeMenu(); router.push(`/project/2`); }}
-                    >
-                      <img src="/suoluetu/2.png" alt="汴河序" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
-                        <span className="text-white font-bold text-xs text-center px-1 drop-shadow-md">汴河序</span>
-                      </div>
-                    </button>
-                    <button
-                      className="relative col-span-1 row-span-1 aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative flex-1 rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
                       onClick={() => { closeMenu(); router.push(`/project/3`); }}
                     >
                       <img src="/suoluetu/3.png" alt="云脉藏纹" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
-                        <span className="text-white font-bold text-[10px] text-center px-1 leading-tight drop-shadow-md">云脉藏纹</span>
+                      <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-3 flex flex-col items-center">
+                        <span className="text-white font-bold text-sm md:text-base text-center px-2 drop-shadow-md">云脉藏纹</span>
+                        <div className="w-4 h-[2px] bg-white/50 mt-2 group-hover:w-6 transition-all" />
                       </div>
                     </button>
+                  </div>
+                  {/* 第三行：项目4和6 */}
+                  <div className="grid grid-cols-2 gap-2 md:gap-3">
                     <button
-                      className="relative col-span-1 row-span-1 aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
                       onClick={() => { closeMenu(); router.push(`/project/4`); }}
                     >
                       <img src="/suoluetu/4.png" alt="朱翠" className="absolute inset-0 w-full h-full object-cover" />
@@ -251,40 +289,12 @@ export default function HomePage() {
                       </div>
                     </button>
                     <button
-                      className="relative col-span-1 row-span-1 aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
-                      onClick={() => { closeMenu(); router.push(`/project/5`); }}
-                    >
-                      <img src="/suoluetu/5.png" alt="竹韵千年" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
-                        <span className="text-white font-bold text-xs text-center px-1 drop-shadow-md">竹韵千年</span>
-                      </div>
-                    </button>
-                    <button
-                      className="relative col-span-2 row-span-1 aspect-[3/2] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
                       onClick={() => { closeMenu(); router.push(`/project/6`); }}
                     >
                       <img src="/suoluetu/6.png" alt="唐宫往事" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-3 flex flex-col items-center">
-                        <span className="text-white font-bold text-sm text-center px-2 drop-shadow-md">唐宫往事</span>
-                      </div>
-                    </button>
-                    <button
-                      className="relative col-span-1 row-span-2 aspect-[3/4] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
-                      onClick={() => { closeMenu(); router.push(`/project/7`); }}
-                    >
-                      <img src="/suoluetu/7.png" alt="灵屿" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-3 flex flex-col items-center">
-                        <span className="text-white font-bold text-sm md:text-base text-center px-2 drop-shadow-md">灵屿</span>
-                        <div className="w-4 h-[2px] bg-white/50 mt-2 group-hover:w-6 transition-all" />
-                      </div>
-                    </button>
-                    <button
-                      className="relative col-span-3 row-span-1 aspect-[3/1] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-center group"
-                      onClick={() => { closeMenu(); router.push(`/project/8`); }}
-                    >
-                      <img src="/suoluetu/8.png" alt="MORPH" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 bg-black/50 rounded-md px-3 py-1.5">
-                        <span className="text-white font-bold text-xs text-center drop-shadow-md">MORPH</span>
+                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
+                        <span className="text-white font-bold text-xs text-center px-1 drop-shadow-md">唐宫往事</span>
                       </div>
                     </button>
                   </div>
@@ -297,60 +307,85 @@ export default function HomePage() {
                     <span className="text-[9px] tracking-[0.25em] uppercase text-black/50 font-medium">Sensory Symbiosis</span>
                     <div className="flex-1 h-[1px] bg-black/8" />
                   </div>
-                  <div className="grid grid-cols-4 gap-2 md:gap-3">
+                  {/* 第一行：项目8占一整行 */}
+                  <div className="grid grid-cols-4 gap-2 md:gap-3 mb-2 md:mb-3">
                     <button
-                      className="relative col-span-2 row-span-2 aspect-[3/4] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
-                      onClick={() => { closeMenu(); router.push(`/project/9`); }}
+                      className="relative col-span-4 aspect-[4/1] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      onClick={() => { closeMenu(); router.push(`/project/8`); }}
                     >
-                      <img src="/suoluetu/9.png" alt="movestep" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-3 flex flex-col items-center">
-                        <span className="text-white font-bold text-sm md:text-base text-center px-2 drop-shadow-md">movestep</span>
-                        <div className="w-4 h-[2px] bg-white/50 mt-2 group-hover:w-6 transition-all" />
+                      <img src="/suoluetu/8.png" alt="Warm Weave" className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-2 flex flex-col items-center">
+                        <span className="text-white font-bold text-xs text-center px-2 drop-shadow-md">Warm Weave</span>
                       </div>
                     </button>
+                  </div>
+                  {/* 第二行：左侧项目9、10上下堆叠，右侧项目11占满 */}
+                  <div className="flex gap-2 md:gap-3 mb-2 md:mb-3">
+                    <div className="flex flex-col gap-2 md:gap-3 w-1/4">
+                      <button
+                        className="relative aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                        onClick={() => { closeMenu(); router.push(`/project/9`); }}
+                      >
+                        <img src="/suoluetu/9.png" alt="movestep" className="absolute inset-0 w-full h-full object-cover" />
+                        <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
+                          <span className="text-white font-bold text-xs text-center px-1 drop-shadow-md">movestep</span>
+                        </div>
+                      </button>
+                      <button
+                        className="relative aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                        onClick={() => { closeMenu(); router.push(`/project/10`); }}
+                      >
+                        <img src="/suoluetu/10.png" alt="我的版画师" className="absolute inset-0 w-full h-full object-cover" />
+                        <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
+                          <span className="text-white font-bold text-xs text-center px-1 drop-shadow-md">我的版画师</span>
+                        </div>
+                      </button>
+                    </div>
                     <button
-                      className="relative col-span-1 row-span-1 aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
-                      onClick={() => { closeMenu(); router.push(`/project/10`); }}
-                    >
-                      <img src="/suoluetu/10.png" alt="我的版画师" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
-                        <span className="text-white font-bold text-xs text-center px-1 drop-shadow-md">我的版画师</span>
-                      </div>
-                    </button>
-                    <button
-                      className="relative col-span-1 row-span-1 aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative flex-1 rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
                       onClick={() => { closeMenu(); router.push(`/project/11`); }}
                     >
                       <img src="/suoluetu/11.png" alt="AI智能衣橱" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
-                        <span className="text-white font-bold text-xs text-center px-1 drop-shadow-md">AI智能衣橱</span>
+                      <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-3 flex flex-col items-center">
+                        <span className="text-white font-bold text-sm md:text-base text-center px-2 drop-shadow-md">AI智能衣橱</span>
+                        <div className="w-4 h-[2px] bg-white/50 mt-2 group-hover:w-6 transition-all" />
                       </div>
                     </button>
-                    <button
-                      className="relative col-span-2 row-span-1 aspect-[3/2] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
-                      onClick={() => { closeMenu(); router.push(`/project/12`); }}
-                    >
-                      <img src="/suoluetu/12.png" alt="花伴" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-3 flex flex-col items-center">
-                        <span className="text-white font-bold text-sm text-center px-2 drop-shadow-md">花伴</span>
+                  </div>
+                  {/* 第三行：项目12、13两个方块 + 项目14 */}
+                  <div className="grid grid-cols-4 gap-2 md:gap-3">
+                    {/* 左侧：项目12、13 + 蓝色色块 */}
+                    <div className="flex flex-col gap-2 md:gap-3 col-span-2" style={{ height: '100%' }}>
+                      <div className="grid grid-cols-2 gap-2 md:gap-3">
+                        <button
+                          className="relative aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                          onClick={() => { closeMenu(); router.push(`/project/12`); }}
+                        >
+                          <img src="/suoluetu/12.png" alt="花伴" className="absolute inset-0 w-full h-full object-cover" />
+                          <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
+                            <span className="text-white font-bold text-xs text-center px-1 drop-shadow-md">花伴</span>
+                          </div>
+                        </button>
+                        <button
+                          className="relative aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                          onClick={() => { closeMenu(); router.push(`/project/13`); }}
+                        >
+                          <img src="/suoluetu/13.png" alt="瑞狮拜" className="absolute inset-0 w-full h-full object-cover" />
+                          <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
+                            <span className="text-white font-bold text-xs text-center px-1 leading-tight drop-shadow-md">瑞狮拜</span>
+                          </div>
+                        </button>
                       </div>
-                    </button>
+                      {/* 蓝色色块（感官共生区主色，半透明） */}
+                      <div className="bg-[#87ACDC]/30 rounded-lg flex-1" />
+                    </div>
                     <button
-                      className="relative col-span-1 row-span-1 aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
-                      onClick={() => { closeMenu(); router.push(`/project/13`); }}
-                    >
-                      <img src="/suoluetu/13.png" alt="瑞狮拜" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
-                        <span className="text-white font-bold text-xs text-center px-1 leading-tight drop-shadow-md">瑞狮拜</span>
-                      </div>
-                    </button>
-                    <button
-                      className="relative col-span-1 row-span-1 aspect-square rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative col-span-2 aspect-[9/8] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
                       onClick={() => { closeMenu(); router.push(`/project/14`); }}
                     >
                       <img src="/suoluetu/14.png" alt="茧觉" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-2 flex flex-col items-center">
-                        <span className="text-white font-bold text-xs text-center px-1 leading-tight drop-shadow-md">茧觉</span>
+                      <div className="relative z-10 w-full bg-gradient-to-t from-black/50 to-transparent p-3 flex flex-col items-center">
+                        <span className="text-white font-bold text-sm text-center px-2 drop-shadow-md">茧觉</span>
                       </div>
                     </button>
                   </div>
@@ -363,25 +398,33 @@ export default function HomePage() {
                     <span className="text-[9px] tracking-[0.25em] uppercase text-black/50 font-medium">Vital Wonderland</span>
                     <div className="flex-1 h-[1px] bg-black/8" />
                   </div>
-                  <div className="grid grid-cols-4 gap-2 md:gap-3">
+                  {/* 第一行：项目15 + 粉色色块 */}
+                  <div className="flex gap-2 md:gap-3 mb-2 md:mb-3">
+                    {/* 左侧：项目15大卡片 */}
                     <button
-                      className="relative col-span-2 row-span-2 aspect-[3/4] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative flex-1 aspect-[3/2] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex items-center justify-center group"
                       onClick={() => { closeMenu(); router.push(`/project/15`); }}
                     >
                       <img src="/suoluetu/15.png" alt="dream land" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-3 flex flex-col items-center">
-                        <span className="text-white font-bold text-sm md:text-base text-center px-2 drop-shadow-md">dream land</span>
-                        <div className="w-4 h-[2px] bg-white/50 mt-2 group-hover:w-6 transition-all" />
+                      <div className="relative z-10 bg-black/50 rounded-md px-4 py-2">
+                        <span className="text-white font-bold text-sm text-center drop-shadow-md">dream land</span>
                       </div>
                     </button>
+                    {/* 右侧：粉色色块（生息幻境区主色，半透明） */}
+                    <div className="bg-[#EAB8C2]/30 rounded-lg w-1/4" />
+                  </div>
+                  {/* 第二行：粉色色块 + 项目16 */}
+                  <div className="flex gap-2 md:gap-3">
+                    {/* 左侧：粉色色块（生息幻境区主色，半透明） */}
+                    <div className="bg-[#EAB8C2]/30 rounded-lg flex-1" />
+                    {/* 右侧：项目16 */}
                     <button
-                      className="relative col-span-2 row-span-2 aspect-[3/4] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative w-2/3 aspect-[8/3] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex items-center justify-center group"
                       onClick={() => { closeMenu(); router.push(`/project/16`); }}
                     >
                       <img src="/suoluetu/16.png" alt="生命循环" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-3 flex flex-col items-center">
-                        <span className="text-white font-bold text-sm md:text-base text-center px-2 drop-shadow-md">生命循环</span>
-                        <div className="w-4 h-[2px] bg-white/50 mt-2 group-hover:w-6 transition-all" />
+                      <div className="relative z-10 bg-black/50 rounded-md px-4 py-2">
+                        <span className="text-white font-bold text-sm text-center drop-shadow-md">生命循环</span>
                       </div>
                     </button>
                   </div>
@@ -394,9 +437,11 @@ export default function HomePage() {
                     <span className="text-[9px] tracking-[0.25em] uppercase text-black/50 font-medium">Exotic Roaming</span>
                     <div className="flex-1 h-[1px] bg-black/8" />
                   </div>
-                  <div className="grid grid-cols-4 gap-2 md:gap-3">
+                  {/* 第一行：项目17 + 项目18和色块 */}
+                  <div className="flex gap-2 md:gap-3 mb-2 md:mb-3">
+                    {/* 左侧：项目17大卡片 */}
                     <button
-                      className="relative col-span-3 row-span-2 aspect-[3/2] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative flex-1 aspect-[3/2] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
                       onClick={() => { closeMenu(); router.push(`/project/17`); }}
                     >
                       <img src="/suoluetu/17.png" alt="咸水谣 · 海上集" className="absolute inset-0 w-full h-full object-cover" />
@@ -405,17 +450,25 @@ export default function HomePage() {
                         <div className="w-8 h-[2px] bg-white/50 mt-2 group-hover:w-10 transition-all" />
                       </div>
                     </button>
+                    {/* 右侧：项目18 + 色块 */}
+                    <div className="flex flex-col gap-2 md:gap-3 w-1/4">
+                      <button
+                        className="relative aspect-[3/4] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                        onClick={() => { closeMenu(); router.push(`/project/18`); }}
+                      >
+                        <img src="/suoluetu/18.png" alt="西湖入境" className="absolute inset-0 w-full h-full object-cover" />
+                        <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-3 flex flex-col items-center">
+                          <span className="text-white font-bold text-sm text-center px-1 drop-shadow-md">西湖入境</span>
+                        </div>
+                      </button>
+                      {/* 绿色色块（域外漫游区主色，半透明） */}
+                      <div className="bg-[#D7E294]/30 rounded-lg flex-1" />
+                    </div>
+                  </div>
+                  {/* 第二行：项目19 */}
+                  <div className="mb-2 md:mb-3">
                     <button
-                      className="relative col-span-1 row-span-2 aspect-[3/4] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
-                      onClick={() => { closeMenu(); router.push(`/project/18`); }}
-                    >
-                      <img src="/suoluetu/18.png" alt="西湖入境" className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="relative z-10 w-full bg-gradient-to-t from-black/60 to-transparent p-3 flex flex-col items-center">
-                        <span className="text-white font-bold text-sm text-center px-1 drop-shadow-md">西湖入境</span>
-                      </div>
-                    </button>
-                    <button
-                      className="relative col-span-4 row-span-1 aspect-[4/1] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex items-center justify-center group"
+                      className="relative w-full aspect-[4/1] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex items-center justify-center group"
                       onClick={() => { closeMenu(); router.push(`/project/19`); }}
                     >
                       <img src="/suoluetu/19.png" alt="归青" className="absolute inset-0 w-full h-full object-cover" />
@@ -423,8 +476,13 @@ export default function HomePage() {
                         <span className="text-white font-bold text-sm text-center drop-shadow-md">归青</span>
                       </div>
                     </button>
+                  </div>
+                  {/* 第三行：色块 + 项目20 */}
+                  <div className="flex gap-2 md:gap-3">
+                    {/* 绿色色块（域外漫游区主色，半透明） */}
+                    <div className="bg-[#D7E294]/30 rounded-lg flex-1" />
                     <button
-                      className="relative col-span-2 row-span-1 aspect-[3/2] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative w-1/2 aspect-[3/2] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
                       onClick={() => { closeMenu(); router.push(`/project/20`); }}
                     >
                       <img src="/suoluetu/20.png" alt="Wooder" className="absolute inset-0 w-full h-full object-cover" />
