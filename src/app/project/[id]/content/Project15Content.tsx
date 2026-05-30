@@ -1,0 +1,198 @@
+'use client';
+
+import { useState } from "react";
+import type { Project } from "@/lib/projects";
+import ImageViewer from "../components/ImageViewer";
+
+interface ProjectContentProps {
+  project: Project;
+}
+
+export default function Project15Content({ project }: ProjectContentProps) {
+  const [showViewer, setShowViewer] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const displayImages = ["/15dream land/zhanban1.jpg", "/15dream land/zhanban 2.jpg"];
+
+  const handleImageClick = (index: number) => {
+    setSelectedImageIndex(index);
+    setShowViewer(true);
+  };
+
+  return (
+    <div className="pb-40">
+      {/* Hero Section */}
+      <section className="pt-24 md:pt-28">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          {/* Hero Banner - 静态展示，不支持点击放大 */}
+          <div
+            className="relative overflow-hidden rounded-xl h-[280px] md:h-[360px] lg:h-[420px] flex items-end pointer-events-none"
+            style={{
+              backgroundColor: project.bgColor,
+              backgroundImage: `url(/15dream land/banner.png)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            {/* 右上角编号 - 在 banner 内部 */}
+            <div className="absolute top-0 right-10">
+              <span
+                className="text-[clamp(4rem,10vw,10rem)] font-bold leading-none select-none"
+                style={{
+                  color: "rgba(255,255,255,0.18)",
+                  fontFamily: "'Georgia', serif",
+                }}
+              >
+                {String(project.id).padStart(2, "0")}
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Section - 白色区域 */}
+      <section className="pt-16 md:pt-20 pb-8 md:pb-8">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          {/* Creators Section - 作者信息 */}
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-xs tracking-[0.3em] uppercase text-black/30">
+                Creators
+              </span>
+              <div className="h-[1px] flex-1 bg-black/10" />
+            </div>
+            <p className="text-lg md:text-xl leading-relaxed text-black/70">
+              陈灵欣、贾希禹、金喜儿、谢雨熹、庞学文、覃子沛、丘圣城、张钦茹
+            </p>
+          </div>
+
+          {/* About Section - 介绍 */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-xs tracking-[0.3em] uppercase text-black/30">
+                About
+              </span>
+              <div className="h-[1px] flex-1 bg-black/10" />
+            </div>
+            <p className="text-lg md:text-xl leading-relaxed text-black/70" style={{ textIndent: "2em" }}>
+              Dream Land，是一份温柔至极的邀约，邀你奔赴现实之外，独属于自己的精神自留地。
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed text-black/70 mt-4" style={{ textIndent: "2em" }}>
+              无论你想珍藏世间美好，抚平心底孤寂，亦或是寻觅灵魂同频的共鸣，在这里，每一场心事与梦境，都值得被温柔珍藏、认真以待。
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed text-black/70 mt-4" style={{ textIndent: "2em" }}>
+              取名梦境之地，默默守护每一个深夜肆意漫游的思绪。于庸常现实的缝隙里，种下漫天熠熠生辉的美梦，每一个梦境都是未曾启封的礼物，深藏心底秘密，遇见未曾窥见的自己。
+            </p>
+            <p className="text-lg md:text-xl leading-relaxed text-black/70 mt-4" style={{ textIndent: "2em" }}>
+              我们以浩瀚梦境宇宙，开启一场浪漫星际漫游。当第一颗梦境星球缓缓亮起，有人投递翱翔天际的灵趣幻梦，有人分享静谧深邃的海底秘境。散落宇宙各处的细碎梦境碎片，如点点星光交织汇聚，编织成绵延温柔的光之脉络。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section - 图片展示 */}
+      <section className="pt-8 md:pt-8 pb-12 md:pb-20 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="text-xs tracking-[0.3em] uppercase text-black/30">
+              Gallery
+            </span>
+            <div className="h-[1px] flex-1 bg-black/10" />
+          </div>
+
+          {/* Gallery Container - 2张图片使用2列布局 */}
+          <div className="w-full px-4">
+            {displayImages.length === 2 ? (
+              <div className="grid grid-cols-2 gap-4 md:gap-6">
+                {displayImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="gallery-image-container relative cursor-pointer group aspect-[3/4]"
+                    onClick={() => handleImageClick(index)}
+                  >
+                    <img
+                      src={image}
+                      alt={`${project.title} - ${index + 1}`}
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : displayImages.length === 1 ? (
+              <div className="flex justify-center">
+                <div
+                  className="gallery-image-container relative cursor-pointer group aspect-[4/3] max-w-2xl w-full"
+                  onClick={() => handleImageClick(0)}
+                >
+                  <img
+                    src={displayImages[0]}
+                    alt={`${project.title} - 1`}
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-3 gap-2 md:gap-4">
+                {displayImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="gallery-image-container relative cursor-pointer group aspect-[3/4]"
+                    onClick={() => handleImageClick(index)}
+                  >
+                    <img
+                      src={image}
+                      alt={`${project.title} - ${index + 1}`}
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <p className="text-center mt-4 text-xs md:text-sm text-black/30">
+            点击图片查看大图
+          </p>
+        </div>
+      </section>
+
+      {/* ========== Video Section - 视频播放器 ========== */}
+      <section className="pt-8 md:pt-8 pb-12 md:pb-20 bg-gray-50">
+        <div className="mx-auto max-w-4xl px-6 md:px-10">
+          {/* 视频标题 */}
+          <div className="flex items-center gap-3 mb-8">
+            <span className="text-xs tracking-[0.3em] uppercase text-black/30">
+              Video
+            </span>
+            <div className="h-[1px] flex-1 bg-black/10" />
+          </div>
+
+          {/* 视频播放器 - 使用浏览器默认控件 */}
+          <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-black">
+            <video
+              className="w-full h-full object-contain"
+              controls
+              preload="metadata"
+            >
+              <source src="https://pub-6dcb6ed488d54018b91f8924fb08b74f.r2.dev/video/15.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+
+      {/* 底部空白区域 - 防止误触底部引导窗口 */}
+      <section className="h-[100px]">
+        {/* Empty space to prevent triggering the bottom navigation bar */}
+      </section>
+
+      {/* 图片查看器弹窗 */}
+      {showViewer && (
+        <ImageViewer
+          images={displayImages}
+          initialIndex={selectedImageIndex}
+          onClose={() => setShowViewer(false)}
+        />
+      )}
+    </div>
+  );
+}
