@@ -429,7 +429,7 @@ export default function BackgroundAnimations({ menuOpen = false }: BackgroundAni
         }
       });
     };
-    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("wheel" as string, handleWheel, { passive: false });
 
     // 页面滚动处理
     const handleScroll = () => {

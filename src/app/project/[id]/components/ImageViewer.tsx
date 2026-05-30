@@ -52,16 +52,17 @@ export default function ImageViewer({ images, initialIndex = 0, onClose }: Image
 
   // 滚轮缩放
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      const delta = e.deltaY > 0 ? -0.1 : 0.1;
+    const handleWheel = (e: Event) => {
+      const wheelEvent = e as WheelEvent;
+      wheelEvent.preventDefault();
+      const delta = wheelEvent.deltaY > 0 ? -0.1 : 0.1;
       setScale((prev) => Math.max(0.5, Math.min(3, prev + delta)));
     };
 
     const container = document.querySelector(".image-viewer-content");
     if (container) {
-      container.addEventListener("wheel", handleWheel, { passive: false });
-      return () => container.removeEventListener("wheel", handleWheel);
+      container.addEventListener("wheel", handleWheel as EventListener, { passive: false });
+      return () => container.removeEventListener("wheel", handleWheel as EventListener);
     }
   }, []);
 
