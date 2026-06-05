@@ -1,0 +1,358 @@
+# 首页方块替换为图片 - 完整操作指南
+
+---
+
+## 一、实现概述
+
+### 1.1 项目背景
+本项目首页使用 **Three.js** 3D 渲染库创建动态背景效果，包含 20 个漂浮的几何对象。默认配置下：
+- **前 2 个对象**：显示自定义图片（当前为 `atb.png` 和 `CB.png`）
+- **后 18 个对象**：显示彩色 3D 方块（绿、粉、橙、蓝四色循环）
+
+### 1.2 效果特点
+- 图片以 **2D 平面形式**显示，始终面向相机
+- 所有对象共享同一物理系统，一起漂浮、旋转
+- 支持鼠标交互（点击爆炸效果）和滚轮交互（推动效果）
+- 图片支持透明背景（推荐 PNG 格式）
+
+### 1.3 文件结构
+```
+项目根目录/
+├── public/                 # 静态资源目录
+│   ├── atb.png            # 当前第一张图片
+│   └── CB.png             # 当前第二张图片
+└── src/
+    └── components/
+        └── BackgroundAnimations.tsx  # 核心动画组件（配置位置）
+```
+
+---
+
+## 二、实现原理
+
+### 2.1 技术栈
+- **Three.js**：用于 3D 场景渲染和物理模拟
+- **React + Next.js**：前端框架
+- **TypeScript**：类型安全的 JavaScript
+
+### 2.2 核心概念
+
+#### 2.2.1 纹理加载机制
+- 使用 `THREE.TextureLoader` 异步加载图片
+- 采用**等待所有纹理加载完成后再创建对象**的策略
+- 确保图片加载完成后才渲染，避免空白或闪烁
+
+#### 2.2.2 2D 图片显示方式
+- 使用 `THREE.PlaneGeometry` 创建平面几何体（而非 3D 立方体）
+- 使用 `THREE.MeshBasicMaterial` 加载图片纹理
+- 设置 `side: THREE.DoubleSide` 确保双面可见
+- 设置 `transparent: true` 支持透明背景
+
+#### 2.2.3 面向相机技术
+- 在初始化时调用 `mesh.lookAt(camera.position)`
+- 在动画循环中持续调用，确保图片始终面向用户
+- 实现类似广告牌（Billboard）效果
+
+#### 2.2.4 物理系统集成
+- 图片对象与 3D 方块共享相同的物理属性：
+  - 速度向量（velocity）
+  - 浮动相位（floatOffset）
+  - 碰撞检测
+  - 边界回弹
+
+### 2.3 关键代码位置
+
+| 代码功能 | 文件位置 | 行号范围 |
+|---------|---------|---------|
+| 图片路径配置 | `BackgroundAnimations.tsx` | 第 10-14 行 |
+| 图片显示配置 | `BackgroundAnimations.tsx` | 第 16-21 行 |
+| 纹理加载逻辑 | `BackgroundAnimations.tsx` | 第 209-236 行 |
+| 图片对象创建 | `BackgroundAnimations.tsx` | 第 261-274 行 |
+| 面向相机更新 | `BackgroundAnimations.tsx` | 第 520-522 行 |
+
+---
+
+## 三、修改步骤
+
+### 3.1 准备工作
+
+#### 3.1.1 图片格式要求
+- **推荐格式**：PNG（支持透明背景）
+- **支持格式**：JPG、PNG、SVG、WebP
+- **尺寸建议**：512x512 或 1024x1024（正方形最佳）
+- **文件大小**：建议不超过 500KB
+
+#### 3.1.2 图片放置位置
+将图片文件放入项目的 `public/` 目录下：
+```
+public/
+├── your-image-1.png
+└── your-image-2.png
+```
+
+### 3.2 修改图片路径配置
+
+**步骤 1**：打开配置文件
+```bash
+打开文件: src/components/BackgroundAnimations.tsx
+```
+
+**步骤 2**：找到图片路径配置（第 10-14 行）
+```typescript
+// 图片纹理路径
+const IMAGE_TEXTURES = [
+  "/atb.png",    // 第一张图片
+  "/CB.png",     // 第二张图片
+];
+```
+
+**步骤 3**：修改为新图片路径
+```typescript
+// 图片纹理路径
+const IMAGE_TEXTURES = [
+  "/your-image-1.png",    // 替换为你的第一张图片
+  "/your-image-2.png",    // 替换为你的第二张图片
+];
+```
+
+### 3.3 调整图片显示大小（可选）
+
+**步骤 1**：找到图片配置（第 16-21 行）
+```typescript
+const IMAGE_CONFIG = {
+  scale: 4,        // 图片缩放大小（默认4，范围2-8）
+  floatSpeed: 0.5, // 漂浮速度（不影响显示）
+  floatAmount: 0.5, // 漂浮幅度（不影响显示）
+};
+```
+
+**步骤 2**：调整 `scale` 值改变图片大小
+```typescript
+const IMAGE_CONFIG = {
+  scale: 5,        // 增大到5
+  floatSpeed: 0.5,
+  floatAmount: 0.5,
+};
+```
+
+### 3.4 添加更多图片（可选）
+
+**步骤 1**：增加图片路径
+```typescript
+const IMAGE_TEXTURES = [
+  "/image1.png",
+  "/image2.png",
+  "/image3.png",  // 新增第三张
+  "/image4.png",  // 新增第四张
+];
+```
+
+**步骤 2**：修改条件判断（第 262 行）
+```typescript
+// 修改前
+if (i < textures.length && textures[i] && i < 2) {
+
+// 修改后（将 2 改为图片数量）
+if (i < textures.length && textures[i] && i < 4) {
+```
+
+### 3.5 验证修改
+
+**步骤 1**：保存文件
+```bash
+Ctrl + S 或 Command + S
+```
+
+**步骤 2**：启动开发服务器（如果未运行）
+```bash
+pnpm next dev -p 5000
+```
+
+**步骤 3**：访问页面验证
+```
+打开浏览器访问: http://localhost:5000
+```
+
+---
+
+## 四、核心代码解析
+
+### 4.1 纹理加载逻辑
+
+```typescript
+// 预加载所有图片纹理
+const textures: THREE.Texture[] = [];
+let loadedCount = 0;
+
+IMAGE_TEXTURES.forEach((url, index) => {
+  textureLoader.load(
+    url,
+    (texture) => {
+      // 加载成功回调
+      texture.colorSpace = THREE.SRGBColorSpace; // 设置正确的颜色空间
+      textures[index] = texture;
+      loadedCount++;
+      
+      // 当所有纹理加载完成后，创建所有对象
+      if (loadedCount === IMAGE_TEXTURES.length) {
+        createAllObjects();
+      }
+    },
+    undefined,
+    (error) => {
+      // 加载失败回调
+      console.error(`图片加载失败: ${url}`, error);
+      textures[index] = textures[0]; // 使用第一张作为备用
+      loadedCount++;
+      if (loadedCount === IMAGE_TEXTURES.length) {
+        createAllObjects();
+      }
+    }
+  );
+});
+```
+
+**关键点**：
+- 使用回调函数确保异步加载完成
+- 设置 `colorSpace` 确保颜色正确显示
+- 失败时使用第一张图片作为备用
+
+### 4.2 创建图片对象
+
+```typescript
+// 前两个使用图片，其余使用3D方块
+if (i < textures.length && textures[i] && i < 2) {
+  // 使用 PlaneGeometry 创建 2D 平面
+  const geometry = new THREE.PlaneGeometry(IMAGE_CONFIG.scale, IMAGE_CONFIG.scale);
+  const material = new THREE.MeshBasicMaterial({
+    map: textures[i],           // 绑定图片纹理
+    transparent: true,          // 启用透明
+    opacity: 1,                 // 完全不透明
+    side: THREE.DoubleSide,     // 双面显示
+  });
+  
+  mesh = new THREE.Mesh(geometry, material);
+  mesh.lookAt(camera.position); // 初始面向相机
+}
+```
+
+**关键点**：
+- `PlaneGeometry(width, height)` 创建平面
+- `MeshBasicMaterial` 不受光照影响，适合显示图片
+- `lookAt()` 使平面面向相机位置
+
+### 4.3 动画循环更新
+
+```typescript
+// 在动画循环中更新每个对象
+boxesRef.current.forEach((box, index) => {
+  // ... 物理更新逻辑 ...
+  
+  // 如果是图片对象，保持面向相机
+  if (index < IMAGE_TEXTURES.length && box.mesh instanceof THREE.Mesh) {
+    box.mesh.lookAt(camera.position);
+  }
+});
+```
+
+**关键点**：
+- 每帧都调用 `lookAt()` 确保始终面向相机
+- 使用索引判断是否为图片对象
+
+---
+
+## 五、常见问题与解决方案
+
+### 5.1 图片不显示
+
+| 可能原因 | 解决方案 |
+|---------|---------|
+| 图片路径错误 | 检查路径是否正确，确保在 `public/` 目录下 |
+| 图片格式不支持 | 更换为 PNG/JPG 格式 |
+| 文件大小过大 | 压缩图片至 500KB 以下 |
+| 跨域问题 | 图片必须放在项目 `public/` 目录下 |
+
+### 5.2 图片显示为空白
+
+| 可能原因 | 解决方案 |
+|---------|---------|
+| 透明背景未启用 | 确保设置 `transparent: true` |
+| 图片加载失败 | 查看浏览器控制台错误信息 |
+| 颜色空间错误 | 确保设置 `colorSpace = THREE.SRGBColorSpace` |
+
+### 5.3 图片显示方向错误
+
+| 可能原因 | 解决方案 |
+|---------|---------|
+| 未设置面向相机 | 确保调用 `mesh.lookAt(camera.position)` |
+| 动画循环中未更新 | 确保在 `requestAnimationFrame` 中更新 |
+
+### 5.4 性能问题
+
+| 可能原因 | 解决方案 |
+|---------|---------|
+| 图片尺寸过大 | 缩小图片分辨率 |
+| 图片数量过多 | 减少 `IMAGE_TEXTURES` 数组长度 |
+| 纹理未压缩 | 使用压缩格式（WebP） |
+
+---
+
+## 六、示例操作
+
+### 示例 1：替换为新图片
+
+**需求**：将现有图片替换为 `logo.png` 和 `banner.png`
+
+**操作步骤**：
+1. 将 `logo.png` 和 `banner.png` 放入 `public/` 目录
+2. 打开 `src/components/BackgroundAnimations.tsx`
+3. 修改第 10-14 行：
+```typescript
+const IMAGE_TEXTURES = [
+  "/logo.png",
+  "/banner.png",
+];
+```
+4. 保存文件，刷新页面
+
+### 示例 2：添加第三张图片
+
+**需求**：在现有两张图片基础上添加 `icon.png`
+
+**操作步骤**：
+1. 将 `icon.png` 放入 `public/` 目录
+2. 修改第 10-14 行：
+```typescript
+const IMAGE_TEXTURES = [
+  "/atb.png",
+  "/CB.png",
+  "/icon.png",
+];
+```
+3. 修改第 262 行：
+```typescript
+if (i < textures.length && textures[i] && i < 3) {
+```
+4. 保存文件，刷新页面
+
+---
+
+## 七、注意事项
+
+1. **路径格式**：必须使用绝对路径（以 `/` 开头），如 `/image.png`
+2. **文件命名**：避免中文和特殊字符，使用小写字母和连字符
+3. **透明背景**：PNG 格式支持透明，JPG 不支持
+4. **缓存问题**：更换图片后可能需要清除浏览器缓存（Ctrl+Shift+R）
+5. **开发服务器**：修改后热更新会自动生效，无需重启
+
+---
+
+## 八、总结
+
+通过修改 `IMAGE_TEXTURES` 数组即可轻松替换首页显示的图片。核心原理是：
+1. 使用 Three.js 的 `TextureLoader` 加载图片
+2. 使用 `PlaneGeometry` 创建 2D 平面
+3. 在动画循环中保持面向相机
+4. 与 3D 方块共享物理系统
+
+这种设计使得图片替换变得非常简单，无需修改复杂的渲染逻辑，只需配置路径即可。

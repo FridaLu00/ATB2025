@@ -184,7 +184,7 @@ export default function ProjectDetailPage() {
                 color: "#333333"
               }}
             >
-              ATB.STUDIO
+              ATB.LU
             </button>
             <div className="flex items-center gap-4">
               <span 
@@ -297,7 +297,7 @@ export default function ProjectDetailPage() {
                     className="text-sm font-bold tracking-tight hover:text-black/70 transition-colors"
                     style={{ fontFamily: "'Georgia', serif" }}
                   >
-                    ATB.STUDIO
+                    ATB.LU
                   </button>
                   <div className="flex items-center gap-4">
                     <span className="text-[10px] text-black/30 font-mono tracking-wider">
@@ -436,7 +436,7 @@ export default function ProjectDetailPage() {
                 {/* Menu Footer */}
                 <div className="px-5 md:px-7 py-5 border-t border-black/5">
                   <div className="flex items-center justify-between text-[9px] text-black/20">
-                    <span>&copy; 2024 ATB.STUDIO</span>
+                    <span>&copy; 2024 ATB.LU</span>
                     <div className="flex gap-4">
                       <span className="hover:text-black/40 cursor-pointer">Instagram</span>
                       <span className="hover:text-black/40 cursor-pointer">Email</span>

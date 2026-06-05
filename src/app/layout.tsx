@@ -3,15 +3,15 @@ import { Inspector } from 'react-dev-inspector';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'ATB.STUDIO',
+  title: 'ATB.LU',
   description: 'A creative design studio focused on pushing boundaries through digital art, photography, and experimental media.',
-  keywords: ['ATB.STUDIO', 'design studio', 'digital art', 'photography', 'portfolio', 'creative'],
-  authors: [{ name: 'ATB.STUDIO' }],
-  generator: 'ATB.STUDIO',
+  keywords: ['ATB.LU', 'design studio', 'digital art', 'photography', 'portfolio', 'creative'],
+  authors: [{ name: 'ATB.LU' }],
+  generator: 'ATB.LU',
   openGraph: {
-    title: 'ATB.STUDIO — Creative Design Studio',
+    title: 'ATB.LU — Creative Design Studio',
     description: 'A creative design studio focused on pushing boundaries through digital art, photography, and experimental media.',
-    siteName: 'ATB.STUDIO',
+    siteName: 'ATB.LU',
     locale: 'en_US',
     type: 'website',
   },
