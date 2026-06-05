@@ -95,15 +95,14 @@ export default function HomePage() {
       >
         <div className="rounded-full px-6 md:px-8 py-3 md:py-4 bg-white/70 backdrop-blur-xl shadow-lg shadow-black/10 border border-white/50">
           <div className="flex items-center justify-between gap-4">
-            {/* 折叠生境 - 居中标题 */}
-            <div className="flex items-center">
-              <h1
-                className="text-base md:text-lg font-bold tracking-tight text-black"
-                style={{ fontFamily: "'Georgia', serif" }}
-              >
-                折叠生境
-              </h1>
-            </div>
+            {/* 折叠生境 - 按钮 */}
+            <button
+              onClick={() => router.push('/about')}
+              className="text-base md:text-lg font-bold tracking-tight text-black transition-all duration-300 hover:bg-gradient-to-r hover:from-[#D7E294] hover:via-[#EAB8C2] hover:to-[#E77C49] hover:bg-clip-text hover:text-transparent cursor-pointer"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              折叠生境
+            </button>
 
             {/* Menu 按钮 */}
             <button
@@ -112,7 +111,7 @@ export default function HomePage() {
                 transition-all duration-300 hover:scale-105 active:scale-95
                 shadow-[0_0_12px_2px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_4px_rgba(0,0,0,0.4)]"
             >
-              <span className="relative z-10">Menu</span>
+              <span className="relative z-10">UNFOLD</span>
               <span className="relative z-10 flex flex-col gap-[3px]">
                 <span className="block w-3.5 h-[1.5px] bg-white" />
                 <span className="block w-3.5 h-[1.5px] bg-white" />

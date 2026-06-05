@@ -197,7 +197,7 @@ export default function ProjectDetailPage() {
                 onClick={openMenu}
                 className="px-4 py-2 text-xs tracking-[0.15em] uppercase rounded-full transition-colors flex items-center gap-2 bg-black/80 hover:bg-black text-white"
               >
-                <span>Menu</span>
+                <span>UNFOLD</span>
                 <span className="flex flex-col gap-[2px]">
                   <span className="block w-3 h-[1px] bg-white" />
                   <span className="block w-3 h-[1px] bg-white" />
