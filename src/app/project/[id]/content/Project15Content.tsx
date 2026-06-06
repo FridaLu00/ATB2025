@@ -12,7 +12,7 @@ export default function Project15Content({ project }: ProjectContentProps) {
   const [showViewer, setShowViewer] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-  const displayImages = ["/15dream land/ZB1.jpg", "/15dream land/ZB2.jpg"];
+  const displayImages = ["/15dreamland/ZB1.jpg", "/15dreamland/ZB2.jpg"];
 
   const handleImageClick = (index: number) => {
     setSelectedImageIndex(index);
@@ -29,7 +29,7 @@ export default function Project15Content({ project }: ProjectContentProps) {
             className="relative overflow-hidden rounded-xl h-[280px] md:h-[360px] lg:h-[420px] flex items-end pointer-events-none"
             style={{
               backgroundColor: project.bgColor,
-              backgroundImage: `url("/15dream land/banner.png")`,
+              backgroundImage: `url("/15dreamland/banner.png")`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}

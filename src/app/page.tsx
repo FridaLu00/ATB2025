@@ -211,8 +211,9 @@ export default function HomePage() {
                     {/* 右侧：橙色色块 + 项目7 */}
                     <div className="flex flex-col gap-2 md:gap-3" style={{ height: '100%' }}>
                       {/* 橙色色块（文化折叠区主色，半透明） */}
-                      <div className="bg-[#E77C49]/30 rounded-lg flex-1 flex items-center justify-center">
-                        <span className="text-[clamp(18px,3vw,28px)] font-bold text-black/50" style={{ fontFamily: "'Georgia', serif" }}>文化折叠</span>
+                      <div className="bg-[#E77C49]/30 rounded-lg flex-1 flex flex-col justify-between p-0">
+                        <span className="text-[clamp(70px,12vw,96px)] font-extrabold text-white/40 text-left leading-none tracking-[0.2em]" style={{ fontFamily: "'Georgia', serif" }}>文化</span>
+                        <span className="text-[clamp(70px,12vw,96px)] font-extrabold text-white/40 text-right leading-none" style={{ fontFamily: "'Georgia', serif" }}>折叠</span>
                       </div>
                       {/* 项目7卡片 */}
                       <button
@@ -362,10 +363,13 @@ export default function HomePage() {
                         </button>
                       </div>
                       {/* 蓝色色块（感官共生区主色，半透明） */}
-                      <div className="bg-[#87ACDC]/30 rounded-lg flex-1" />
+                      <div className="bg-[#87ACDC]/30 rounded-lg flex-1 flex flex-col justify-between p-0">
+                        <span className="text-[clamp(70px,12vw,96px)] font-extrabold text-white/40 text-left leading-none" style={{ fontFamily: "'Georgia', serif" }}>感官</span>
+                        <span className="text-[clamp(70px,12vw,96px)] font-extrabold text-white/40 text-right leading-none" style={{ fontFamily: "'Georgia', serif" }}>共生</span>
+                      </div>
                     </div>
                     <button
-                      className="relative col-span-2 aspect-[9/8] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
+                      className="relative col-span-2 h-full rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
                       onClick={() => { closeMenu(); router.push(`/project/14`); }}
                     >
                       <img src="/suoluetu/14.png" alt="茧觉" className="absolute inset-0 w-full h-full object-cover" />
