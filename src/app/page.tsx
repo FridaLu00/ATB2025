@@ -400,12 +400,22 @@ export default function HomePage() {
                       </div>
                     </button>
                     {/* 右侧：粉色色块（生息幻境区主色，半透明） */}
-                    <div className="bg-[#EAB8C2]/30 rounded-lg w-1/4" />
+                    <div className="bg-[#EAB8C2]/30 rounded-lg w-1/4 relative overflow-hidden">
+                      {/* 生字在右上角，完全贴边 */}
+                      <span className="absolute top-0 right-0 text-[clamp(80px,30vw,150px)] font-extrabold text-white/40 leading-none" style={{ fontFamily: "'Georgia', serif" }}>生</span>
+                      {/* 息字在左下角，完全贴边，字体更大 */}
+                      <span className="absolute bottom-0 left-0 text-[clamp(80px,30vw,150px)] font-extrabold text-white/40 leading-none" style={{ fontFamily: "'Georgia', serif" }}>息</span>
+                    </div>
                   </div>
                   {/* 第二行：粉色色块 + 项目16 */}
                   <div className="flex gap-2 md:gap-3">
                     {/* 左侧：粉色色块（生息幻境区主色，半透明） */}
-                    <div className="bg-[#EAB8C2]/30 rounded-lg flex-1" />
+                    <div className="bg-[#EAB8C2]/30 rounded-lg flex-1 relative overflow-hidden">
+                      {/* 幻字在左上，完全贴边 */}
+                      <span className="absolute top-0 left-0 text-[clamp(55px,24vw,100px)] font-extrabold text-white/40 leading-none" style={{ fontFamily: "'Georgia', serif" }}>幻</span>
+                      {/* 境字在右下，完全贴边 */}
+                      <span className="absolute bottom-0 right-0 text-[clamp(55px,24vw,100px)] font-extrabold text-white/40 leading-none" style={{ fontFamily: "'Georgia', serif" }}>境</span>
+                    </div>
                     {/* 右侧：项目16 */}
                     <button
                       className="relative w-2/3 aspect-[8/3] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex items-center justify-center group"
@@ -451,7 +461,12 @@ export default function HomePage() {
                         </div>
                       </button>
                       {/* 绿色色块（域外漫游区主色，半透明） */}
-                      <div className="bg-[#D7E294]/30 rounded-lg flex-1" />
+                      <div className="bg-[#D7E294]/30 rounded-lg flex-1 relative overflow-hidden">
+                        {/* 域字在左，充满色块 */}
+                        <span className="absolute top-1/2 left-0 -translate-y-1/2 text-[clamp(40px,18vw,75px)] font-extrabold text-white/40 leading-none" style={{ fontFamily: "'Georgia', serif" }}>域</span>
+                        {/* 外字在右，充满色块 */}
+                        <span className="absolute top-1/2 right-0 -translate-y-1/2 text-[clamp(40px,18vw,75px)] font-extrabold text-white/40 leading-none" style={{ fontFamily: "'Georgia', serif" }}>外</span>
+                      </div>
                     </div>
                   </div>
                   {/* 第二行：项目19 */}
@@ -469,7 +484,12 @@ export default function HomePage() {
                   {/* 第三行：色块 + 项目20 */}
                   <div className="flex gap-2 md:gap-3">
                     {/* 绿色色块（域外漫游区主色，半透明） */}
-                    <div className="bg-[#D7E294]/30 rounded-lg flex-1" />
+                      <div className="bg-[#D7E294]/30 rounded-lg flex-1 relative overflow-hidden">
+                        {/* 漫字在左上，完全贴边 */}
+                        <span className="absolute top-0 left-0 text-[clamp(80px,33.5vw,145px)] font-extrabold text-white/40 leading-none" style={{ fontFamily: "'Georgia', serif" }}>漫</span>
+                        {/* 游字在右下，完全贴边 */}
+                        <span className="absolute bottom-0 right-0 text-[clamp(80px,33.5vw,145px)] font-extrabold text-white/40 leading-none" style={{ fontFamily: "'Georgia', serif" }}>游</span>
+                      </div>
                     <button
                       className="relative w-1/2 aspect-[3/2] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"
                       onClick={() => { closeMenu(); router.push(`/project/20`); }}
