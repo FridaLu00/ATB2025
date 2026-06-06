@@ -211,7 +211,9 @@ export default function HomePage() {
                     {/* 右侧：橙色色块 + 项目7 */}
                     <div className="flex flex-col gap-2 md:gap-3" style={{ height: '100%' }}>
                       {/* 橙色色块（文化折叠区主色，半透明） */}
-                      <div className="bg-[#E77C49]/30 rounded-lg flex-1" />
+                      <div className="bg-[#E77C49]/30 rounded-lg flex-1 flex items-center justify-center">
+                        <span className="text-[clamp(18px,3vw,28px)] font-bold text-black/50" style={{ fontFamily: "'Georgia', serif" }}>文化折叠</span>
+                      </div>
                       {/* 项目7卡片 */}
                       <button
                         className="relative aspect-[3/2] rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] flex flex-col items-center justify-end group"

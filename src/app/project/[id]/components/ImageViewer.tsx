@@ -22,7 +22,7 @@ export default function ImageViewer({ images, initialIndex = 0, onClose }: Image
       plugins={[Zoom]}
       zoom={{
         maxZoomPixelRatio: 5,
-        minZoomRatio: 0.25,
+        minZoom: 0.25,
         doubleClickMaxStops: 0, // 禁用双击放大（设为0表示不允许双击放大）
         wheelZoomDistanceFactor: 300, // 降低滚轮灵敏度（默认100，值越大越不敏感）
       }}
