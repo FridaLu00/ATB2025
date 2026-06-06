@@ -122,6 +122,15 @@ html {
   background: #a3a3a3;
 }
 
+/* 全局按钮hover时鼠标变小手 */
+button, a, [role="button"], .cursor-pointer {
+  cursor: pointer;
+}
+
+button:hover, a:hover, [role="button"]:hover, .cursor-pointer:hover {
+  cursor: pointer;
+}
+
 /* Page transition animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
