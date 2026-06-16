@@ -203,8 +203,6 @@ export default function Project7Content({ project }: ProjectContentProps) {
               preload="metadata"
             >
               <source src="https://pub-6dcb6ed488d54018b91f8924fb08b74f.r2.dev/video/7.mp4" type="video/mp4" />
-              <source src="/7lingyu/SP.webm" type="video/webm" />
-              <source src="/7lingyu/SP.ogv" type="video/ogg" />
               <p className="text-white p-4">您的浏览器不支持视频播放，请尝试使用其他浏览器或下载视频文件。</p>
             </video>
           </div>
