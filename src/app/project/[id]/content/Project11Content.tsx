@@ -165,7 +165,7 @@ export default function Project11Content({ project }: ProjectContentProps) {
                 controls
                 preload="metadata"
               >
-                <source src="/11yichu/SP2.mp4" type="video/mp4" />
+                <source src="https://pub-6dcb6ed488d54018b91f8924fb08b74f.r2.dev/video/11.2.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
