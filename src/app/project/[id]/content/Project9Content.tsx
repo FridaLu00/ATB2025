@@ -201,7 +201,7 @@ export default function Project9Content({ project }: ProjectContentProps) {
                 controls
                 preload="metadata"
               >
-                <source src="https://pub-6dcb6ed488d54018b91f8924fb08b74f.r2.dev/video/9.1.mp4" type="video/mp4" />
+                <source src="https://pub-6dcb6ed488d54018b91f8924fb08b74f.r2.dev/video/9.1.MP4" type="video/mp4" />
               </video>
             </div>
 
@@ -212,7 +212,7 @@ export default function Project9Content({ project }: ProjectContentProps) {
                 controls
                 preload="metadata"
               >
-                <source src="/9movestep/SP2.MP4" type="video/mp4" />
+                <source src="https://pub-6dcb6ed488d54018b91f8924fb08b74f.r2.dev/video/9.2.MP4" type="video/mp4" />
               </video>
             </div>
           </div>
