@@ -157,7 +157,7 @@ export default function Project16Content({ project }: ProjectContentProps) {
                 controls
                 preload="metadata"
               >
-                <source src="/16shengmingxunhuan/sp.mp4" type="video/mp4" />
+                <source src="https://pub-6dcb6ed488d54018b91f8924fb08b74f.r2.dev/video/16.1.mp4" type="video/mp4" />
               </video>
             </div>
 
