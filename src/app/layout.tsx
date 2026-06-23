@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: 'biotope.atb.lu',
     images: [
       {
-        url: 'https://biotope.atb.lu/atb.png',
+        url: '/atb.png',
         width: 1200,
         height: 630,
         alt: 'FOLD BIOTOPE EXHIBITION',
