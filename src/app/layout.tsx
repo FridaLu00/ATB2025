@@ -4,9 +4,9 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'ATB.LU',
-  description: 'A creative design studio focused on pushing boundaries through digital art, photography, and experimental media.',
+  description: "A 'biotope' is a place brimming with boundless vitality. Under the title 'Fold Biotope: The Boundless Interactive Perception Field', this exhibition—marking the graduation of students from the '2025–2026 Master of Science in Arts Technology and Business (MScATB)' programme at the School of Business, Lingnan University, Hong Kong—seeks to move beyond the static display conventions of traditional art galleries.",
   keywords: ['ATB.LU', 'design studio', 'digital art', 'photography', 'portfolio', 'creative'],
-  authors: [{ name: 'ATB.LU' }],
+  authors: [{ name: 'biotope.atb.lu' }],
   generator: 'ATB.LU',
   icons: {
     icon: '/atb.png',
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     apple: '/atb.png',
   },
   other: {
-    'meta:description': 'A creative design studio focused on pushing boundaries through digital art, photography, and experimental media.',
-    'og:title': 'ATB.LU — Creative Design Studio',
-    'og:site_name': 'ATB.LU',
+    'meta:description': "A 'biotope' is a place brimming with boundless vitality. Under the title 'Fold Biotope: The Boundless Interactive Perception Field', this exhibition—marking the graduation of students from the '2025–2026 Master of Science in Arts Technology and Business (MScATB)' programme at the School of Business, Lingnan University, Hong Kong—seeks to move beyond the static display conventions of traditional art galleries.",
+    'og:title': 'FOLD BIOTOPE EXHIBITION|岭南大学MScATB毕业展',
+    'og:site_name': 'biotope.atb.lu',
     'og:locale': 'en_US',
     'og:type': 'website',
   },
