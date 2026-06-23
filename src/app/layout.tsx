@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     shortcut: '/atb.png',
     apple: '/atb.png',
   },
-  openGraph: {
-    title: 'ATB.LU — Creative Design Studio',
-    description: 'A creative design studio focused on pushing boundaries through digital art, photography, and experimental media.',
-    siteName: 'ATB.LU',
-    locale: 'en_US',
-    type: 'website',
+  other: {
+    'meta:description': 'A creative design studio focused on pushing boundaries through digital art, photography, and experimental media.',
+    'og:title': 'ATB.LU — Creative Design Studio',
+    'og:site_name': 'ATB.LU',
+    'og:locale': 'en_US',
+    'og:type': 'website',
   },
   robots: {
     index: true,
